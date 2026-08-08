@@ -36,20 +36,4 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-if os.getenv("DISPLAY") then
-  vim.g.clipboard = {
-    name = "x11",
-    copy = {
-      ["+"] = "xclip -selection clipboard",
-      ["*"] = "xclip -selection primary",
-    },
-    paste = {
-      ["+"] = "xclip -selection clipboard -o",
-      ["*"] = "xclip -selection primary -o",
-    },
-    cache_enabled = 0,
-  }
-  vim.opt.clipboard = "unnamedplus"
-else
-  vim.opt.clipboard = "unnamed"
-end
+vim.opt.clipboard = "unnamedplus"
